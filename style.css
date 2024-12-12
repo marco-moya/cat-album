@@ -1,0 +1,248 @@
+:root {
+  --first-color: #8174A0;
+  --second-color: #A888B5;
+  --third-color: #EFB6C8;
+  --four-color: #FFD2A0;
+  --icon-color: #393939
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Caveat", cursive;
+  background-color: var(--first-color);
+  position: relative;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--first-color);
+}
+
+nav {
+  flex: 1 1 auto;
+  text-align: center;
+  justify-content: center;
+  & button {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--icon-color);
+    :hover {
+      text-shadow: 
+      0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.6),
+      0 0 40px rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+h1 {
+  flex: 1 1 auto;
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+section {
+  width: 100%;
+  padding: 2rem;
+}
+
+.page-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #000000bb;
+  position: fixed;
+  z-index: 20;
+  height: 100vh;
+  top: -100vh;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  & button {
+    padding: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--four-color);
+    }
+  }
+  & form {
+    padding: 1rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "title title" "file file" "img img" "upload cancel";
+    gap: 1rem;
+    background-color: var(--second-color);
+    & h2:nth-child(1) {
+      grid-area: title;
+      justify-self: center;
+      font-size: 2rem;
+    }
+    & input:nth-child(2) {
+      grid-area: file;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    & div:nth-child(3) {
+      grid-area: img;
+      justify-self: center;
+      width: 150px;
+      height: auto;
+    }
+    & button:nth-child(4) {
+      grid-area: upload;
+    }
+    & button:nth-child(5) {
+      grid-area: cancel;
+    }
+  }
+}
+
+.randomCats__container,
+.favoriteCats__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4rem;
+  & article {
+    align-self: center;
+    &:hover button {
+      color: var(--four-color);
+    }
+  }
+}
+
+.card {
+  width: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 8px 16px 6px 6px rgba(69, 69, 69, 0.5);
+  position: relative;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.btn-randomCats {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: var(--icon-color);
+  background-color: var(--four-color);
+  &:hover {
+    color: var(--four-color);
+    background-color: var(--icon-color);
+  }
+}
+
+.btn-favourite,
+.btn-delete {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  background-color: transparent;
+  background-color: var(--second-color);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: var(--icon-color);
+  &:hover {
+    color: var(--four-color);
+  }
+}
+
+.btn-arrowUp {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  position: fixed;
+  left: 2rem;
+  bottom: 2rem;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  color: var(--icon-color);
+  background-color: var(--four-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: var(--four-color);
+    background-color: var(--icon-color);
+  }
+}
+
+.hide-page {
+  display: none;
+}
+
+.show-page {
+  display: block;
+}
+
+.bright {
+  color: var(--four-color);
+}
+
+.select {
+  color: var(--four-color);
+}
+
+.hide-arrowUp {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  top: 0;
+}

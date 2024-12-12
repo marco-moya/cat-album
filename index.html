@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album de gatos</title>
+  <link rel="shortcut icon" href="assets/image/cat-solid.svg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Album de gatos  <i class="fa-solid fa-cat"></i></h1>
+    <nav>
+      <button type="button" class="bright" id="btn-pageRandom">
+        <i class="fa-solid fa-house"></i>
+      </button>
+      <button type="button" id="btn-pageUpload">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+      </button>
+      <button type="button" id="btn-pageFavourites">
+        <i class="fa-solid fa-bookmark"></i>
+      </button>
+    </nav>
+  </header>
+
+  <section class="page-upload hide-pag">
+    <form id="upload-cat">
+      <h2>Sube una foto</h2>
+      <input type="file" name="file" id="file">
+      <div class="preview">
+        <img id="thumbnail">
+      </div>
+      <button type="button" id="btn-uploadCancel">Cancelar</button>
+      <button type="button" id="btn-upload">Aceptar</button>
+    </form>
+  </section>
+
+  <section class="randomCats page-random" id="randomCats">
+    <h2>Galería</h2>
+    <div class="randomCats__container" id="cats-random"></div>
+    <template id="template-random">
+      <article class="card">
+        <img src="" alt="Foto gato aleatorio">
+        <button type="button" class="btn-favourite">
+          <i class="fa-solid fa-bookmark"></i>
+        </button>
+      </article>
+    </template>
+    <button type="button" class="btn-randomCats" id="change-cat">
+      <i class="fa-solid fa-arrows-rotate"></i>
+    </button>
+  </section>
+  
+  <section class="page-favourites hide-page" id="favoritesCat">
+    <h2>Mis favoritos</h2>
+    <div class="favoriteCats__container" id="cats-favourite">
+      <template id="template-favourite">
+        <article class="card">
+          <img src="" alt="Foto gato aleatorio">
+          <button type="button" class="btn-delete">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </article>
+      </template>
+    </div>
+  </section>
+
+  <button type="button" class="btn-arrowUp hide-arrowUp" id="btn-arrowUp">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+  
+  <script src="https://kit.fontawesome.com/aaed170742.js" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+</html>
